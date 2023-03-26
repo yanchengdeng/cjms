@@ -1,5 +1,6 @@
 package com.sgm.cjms
 
+import android.annotation.SuppressLint
 import android.app.Application
 import com.blankj.utilcode.util.Utils
 import com.sgm.cjms.util.L
@@ -13,6 +14,7 @@ import com.tencent.mmkv.MMKV
  */
 class CJMSApp : Application() {
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate() {
         super.onCreate()
 

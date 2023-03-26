@@ -8,5 +8,9 @@
     <color name="gray_not_enable">#bbbbbb</color>
     <color name="color_222222">#222222</color>
     <color name="gray_bg">#eeeeee</color>
-    <color name="red">#ff0000</color>
+    <color name="red">#ff7373</color>
+    <color name="black_5A5A6E">#5A5A6E</color>
+    <color name="color_text_hint">#cdcdcd</color>
+    <color name="orange_F48236">#F48236</color>
+    <color name="blue_162BA2">#162BA2</color>
 </resources>

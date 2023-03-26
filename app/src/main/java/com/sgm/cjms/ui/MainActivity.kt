@@ -1,15 +1,21 @@
 package com.sgm.cjms.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.ActivityUtils
 import com.sgm.cjms.R
 import com.sgm.cjms.base.BaseActivity
 import com.sgm.cjms.databinding.ActivityMainBinding
+import com.sgm.cjms.ui.adapter.MainModuleAdapter
 import com.sgm.cjms.ui.scrap.ScrapsInfoInputActivity
+import com.sgm.cjms.util.CommonUtils
+import com.sgm.cjms.util.SpacesItemDecoration
 import com.sgm.cjms.util.T
 import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
-import me.hgj.jetpackmvvm.ext.view.clickNoRepeat
 
 /**
 *@Describe ：首页
@@ -18,18 +24,50 @@ import me.hgj.jetpackmvvm.ext.view.clickNoRepeat
 **/
 class MainActivity : BaseActivity<BaseViewModel,ActivityMainBinding>() {
 
+    private val adapter = MainModuleAdapter(data = CommonUtils.initMainModules())
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun initView(savedInstanceState: Bundle?) {
-        mViewBind.commonTitle.ivBack.visibility = View.INVISIBLE
+        mViewBind.commonTitle.ivBack.visibility = View.GONE
         mViewBind.commonTitle.tvTitle.text = getString(R.string.main_home)
 
+        val itemDecoration = SpacesItemDecoration(this)
+        itemDecoration.setParam(android.R.color.transparent,16)
+        itemDecoration.setNoShowDivider(adapter.data.size,0)
 
-        mViewBind.btnMarkScraps.clickNoRepeat {
-            ActivityUtils.startActivity(ScrapsInfoInputActivity::class.java)
+        //使用该方式添加布局导致layout_header_view 根布局失效，所以布局中额外包裹一次
+        val header = LayoutInflater.from(this).inflate(R.layout.layout_header_view,null,false)
+        //供应商
+        header.findViewById<TextView>(R.id.tvSupplierName).setOnClickListener {
+            T.toast("工艺上")
         }
 
-        mViewBind.btnRefreshCacheData.clickNoRepeat {
-            ActivityUtils.startActivity(DataCacheActivity::class.java)
+        header.findViewById<TextView>(R.id.tvSupplierAddress).setOnClickListener {
+            T.toast("工艺上地址")
+        }
+
+        adapter.addHeaderView(header)
+        mViewBind.refreshView.recyclerView.addItemDecoration(itemDecoration)
+
+
+        mViewBind.refreshView.recyclerView.layoutManager = LinearLayoutManager(this)
+        mViewBind.refreshView.recyclerView.adapter = adapter
+
+
+        adapter.setOnItemClickListener {_,_,positon ->
+            when(positon){
+                0 -> ActivityUtils.startActivity(ScrapsInfoInputActivity::class.java)
+                1 ->ActivityUtils.startActivity(ScrapsInfoInputActivity::class.java)
+                2 ->ActivityUtils.startActivity(ScrapsInfoInputActivity::class.java)
+                3->ActivityUtils.startActivity(DataCacheActivity::class.java)
+                4->ActivityUtils.startActivity(DataCacheActivity::class.java)
+
+            }
+        }
+
+        mViewBind.refreshView.refreshLayout.setOnRefreshListener {
+
+            mViewBind.refreshView.refreshLayout.finishRefresh()
         }
     }
 

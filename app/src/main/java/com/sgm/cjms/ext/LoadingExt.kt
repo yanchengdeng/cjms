@@ -1,5 +1,6 @@
 package com.sgm.cjms.ext
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import androidx.fragment.app.Fragment
 import com.lxj.xpopup.XPopup
@@ -11,6 +12,7 @@ import com.lxj.xpopup.impl.LoadingPopupView
  * @time : 1:45
  * @desc :
  */
+@SuppressLint("StaticFieldLeak")
 private var loading: LoadingPopupView? = null
 
 

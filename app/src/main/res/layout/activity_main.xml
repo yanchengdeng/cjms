@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/gray_bg"
     tools:context=".ui.MainActivity">
 
     <include
@@ -15,53 +15,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnMarkScraps"
-        android:layout_width="wrap_content"
-        android:text="@string/mark_scraps"
+    <include
+        android:id="@+id/refreshView"
+        layout="@layout/layout_refresh_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/commonTitle"
-        android:layout_height="wrap_content"/>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnScrapsRecords"
-        android:layout_width="wrap_content"
-        android:text="@string/scraps_record"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMarkScraps"
-        android:layout_height="wrap_content"/>
-
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCurb"
-        android:layout_width="wrap_content"
-        android:text="@string/curb"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnScrapsRecords"
-        android:layout_height="wrap_content"/>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnRefreshCacheData"
-        android:layout_width="wrap_content"
-        android:text="@string/refresh_cache_data"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCurb"
-        android:layout_height="wrap_content"/>
-
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCheckUpdate"
-        android:layout_width="wrap_content"
-        android:text="@string/check_app"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRefreshCacheData"
-        android:layout_height="wrap_content"/>
-
+        app:layout_constraintTop_toBottomOf="@+id/commonTitle" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
