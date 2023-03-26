@@ -27,7 +27,24 @@ class ScrapsInfoInputActivity :  BaseActivity<ScrapsInputViewModel, ActivityScra
             ActivityUtils.startActivity(ScrapsInfoDefectActivity::class.java)
         }
 
+
+      setBarCodeDataListener(object :ListerBarCodeData{
+          override fun listenBarCode(code: String) {
+              mViewBind.etReadyMachineCode.setText(code)
+          }
+      })
+
     }
+
+    override fun isSupportBarcodeReader(): Boolean {
+        return true
+    }
+
+
+
+
+
+
 
 
 }

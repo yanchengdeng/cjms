@@ -71,10 +71,6 @@ class MainActivity : BaseActivity<BaseViewModel,ActivityMainBinding>() {
         }
     }
 
-    override fun isSupportBarcodeReader() : Boolean{
-        return true
-    }
-
 
 
     var currentTimeMillis = 0L

@@ -29,6 +29,8 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : BaseVmVbActi
     //条形码读取
     private var barcodeReader: BarcodeReader? = null
     private var manager: AidcManager? = null
+    //监听扫描code
+    private var listerBarCodeData :ListerBarCodeData? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +44,10 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : BaseVmVbActi
             initBarCodeReader()
         }
 
+    }
+
+    fun setBarCodeDataListener(listerBarCodeData: ListerBarCodeData){
+        this.listerBarCodeData = listerBarCodeData
     }
 
 
@@ -150,7 +156,7 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : BaseVmVbActi
 
     override fun onBarcodeEvent(event: BarcodeReadEvent?) {
         if (isSupportBarcodeReader()) {
-            T.toast(event?.barcodeData ?: "")
+            listerBarCodeData?.listenBarCode(event?.barcodeData ?: "")
         }
     }
 
@@ -175,4 +181,9 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : BaseVmVbActi
         AutoSizeCompat.autoConvertDensityOfGlobal(super.getResources())
         return super.getResources()
     }*/
+
+
+    interface ListerBarCodeData{
+        fun listenBarCode(code : String)
+    }
 }
