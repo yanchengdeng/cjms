@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="16dp"
+    android:background="@drawable/trans_black_board_bg"
+    android:padding="@dimen/dp_10"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent">
+
+
+    <TextView
+        android:id="@+id/tvRecordId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WWWWWWWWWW"
+        android:textColor="@color/blue_162BA2"
+        android:textSize="@dimen/title_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRecordDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2022/12/12 19:32:21"
+        android:textColor="@color/black_5A5A6E"
+        android:textSize="@dimen/small_size"
+        app:layout_constraintBottom_toBottomOf="@+id/tvRecordId"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvRecordId" />
+
+    <TextView
+        android:id="@+id/tvLine"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/line_height"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:background="@color/blue_162BA2"
+        app:layout_constraintBottom_toTopOf="@+id/tvWorkAddress"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecordId" />
+
+
+    <TextView
+        android:id="@+id/tvWorkAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="利优比(常州)"
+        android:textColor="@color/black_5A5A6E"
+        android:textSize="@dimen/small_size"
+        app:layout_constraintBottom_toTopOf="@+id/tvPartNo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLine" />
+
+    <TextView
+        android:id="@+id/tvStoreHouse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="仓库、G9"
+        android:textColor="@color/black_5A5A6E"
+        android:textSize="@dimen/small_size"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWorkAddress"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvWorkAddress" />
+
+
+
+    <TextView
+        android:id="@+id/tvPartNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="324234"
+        android:layout_marginTop="@dimen/dp_10"
+        android:textColor="@color/black_5A5A6E"
+        android:textSize="@dimen/small_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWorkAddress" />
+
+    <TextView
+        android:id="@+id/tvUploadScale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20/200"
+        android:textColor="@color/orange_F48236"
+        android:textSize="@dimen/small_size"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPartNo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvPartNo" />
+
+    <TextView
+        android:id="@+id/tvCurbStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="有码记录未上传"
+        android:layout_marginTop="@dimen/dp_10"
+        android:textColor="@color/color_text_hint"
+        android:textSize="@dimen/small_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPartNo" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnUpload"
+        android:text="@string/upload"
+        android:textColor="@color/white"
+        android:textSize="@dimen/small_size"
+        android:background="@drawable/btn_blue_small"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvCurbStatus"
+        app:layout_constraintBottom_toBottomOf="@id/tvCurbStatus"
+        android:paddingHorizontal="@dimen/dp_16"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height_small"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

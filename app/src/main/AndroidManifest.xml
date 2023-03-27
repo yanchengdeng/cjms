@@ -13,28 +13,18 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-
-<!--    Android 13版本适配，细化存储权限-->
+    <uses-permission android:name="android.permission.BLUETOOTH" /> <!-- Android 13版本适配，细化存储权限 -->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-
-
-    <!--适配Android R包可见性 开始-->
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" /> <!-- 适配Android R包可见性 开始 -->
     <queries package="${applicationId}">
         <intent>
-            <action android:name="android.media.action.IMAGE_CAPTURE">
-
-            </action>
+            <action android:name="android.media.action.IMAGE_CAPTURE"></action>
         </intent>
         <intent>
-            <action android:name="android.media.action.ACTION_VIDEO_CAPTURE">
-
-            </action>
+            <action android:name="android.media.action.ACTION_VIDEO_CAPTURE"></action>
         </intent>
     </queries>
-    <!--适配Android R包可见性 结束-->
 
     <application
         android:name="com.sgm.cjms.CJMSApp"
@@ -50,21 +40,29 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.scrap.ScrapsInfoInputActivity"
+            android:name=".ui.ScrapsListActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
+        <activity
+            android:name=".ui.CurbListActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".ui.scrap.ScrapsInfoInputActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.scrap.ScrapsInfoDefectActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.scrap.ScrapsInfoOtherActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.DataCacheActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.SplashActivity"
             android:exported="true"

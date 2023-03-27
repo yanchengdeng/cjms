@@ -1,6 +1,5 @@
 package com.sgm.cjms.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.sgm.cjms.R
 import com.sgm.cjms.base.BaseActivity

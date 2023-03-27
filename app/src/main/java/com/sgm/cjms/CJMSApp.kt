@@ -5,6 +5,7 @@ import android.app.Application
 import com.blankj.utilcode.util.Utils
 import com.sgm.cjms.util.L
 import com.tencent.mmkv.MMKV
+import com.xuexiang.xupdate.XUpdate
 
 /**
  * @author  : yanc
@@ -22,6 +23,9 @@ class CJMSApp : Application() {
 
       var root =   MMKV.initialize(this)
         L.d("mmvm  root is $root")
+
+
+        XUpdate.get().init(this)
 
     }
 }

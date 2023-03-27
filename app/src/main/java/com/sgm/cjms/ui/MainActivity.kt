@@ -7,14 +7,18 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.ActivityUtils
+import com.blankj.utilcode.util.AppUtils
 import com.sgm.cjms.R
 import com.sgm.cjms.base.BaseActivity
 import com.sgm.cjms.databinding.ActivityMainBinding
 import com.sgm.cjms.ui.adapter.MainModuleAdapter
 import com.sgm.cjms.ui.scrap.ScrapsInfoInputActivity
 import com.sgm.cjms.util.CommonUtils
+import com.sgm.cjms.util.DataResourceUtil
 import com.sgm.cjms.util.SpacesItemDecoration
 import com.sgm.cjms.util.T
+import com.xuexiang.xupdate.easy.EasyUpdate
+import com.xuexiang.xupdate.entity.UpdateEntity
 import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
 
 /**
@@ -24,7 +28,7 @@ import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
 **/
 class MainActivity : BaseActivity<BaseViewModel,ActivityMainBinding>() {
 
-    private val adapter = MainModuleAdapter(data = CommonUtils.initMainModules())
+    private val adapter = MainModuleAdapter(data = DataResourceUtil.initMainModules())
 
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun initView(savedInstanceState: Bundle?) {
@@ -57,10 +61,21 @@ class MainActivity : BaseActivity<BaseViewModel,ActivityMainBinding>() {
         adapter.setOnItemClickListener {_,_,positon ->
             when(positon){
                 0 -> ActivityUtils.startActivity(ScrapsInfoInputActivity::class.java)
-                1 ->ActivityUtils.startActivity(ScrapsInfoInputActivity::class.java)
-                2 ->ActivityUtils.startActivity(ScrapsInfoInputActivity::class.java)
+                1 ->ActivityUtils.startActivity(ScrapsListActivity::class.java)
+                2 ->ActivityUtils.startActivity(CurbListActivity::class.java)
                 3->ActivityUtils.startActivity(DataCacheActivity::class.java)
-                4->ActivityUtils.startActivity(DataCacheActivity::class.java)
+                4->{
+                    val xupdateInfo = UpdateEntity()
+                    xupdateInfo.setShowNotification(true)
+                    xupdateInfo.isHasUpdate = true
+                    xupdateInfo.isForce = false
+                    xupdateInfo.size = 12000
+                    xupdateInfo.versionCode = AppUtils.getAppVersionCode()
+                    xupdateInfo.versionName = AppUtils.getAppVersionName()
+                    xupdateInfo.downloadUrl = "https://file.zgxyzx.net/dadaodata.com_net.zgxyzx.aio_R4.6.2_2021120113_app_product_rk3399_shimeitai.apk"
+                    xupdateInfo.updateContent = "测试"
+                    EasyUpdate.checkUpdate(this, xupdateInfo)
+                }
 
             }
         }

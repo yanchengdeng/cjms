@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg"
+    tools:context=".ui.MainActivity">
+
+    <include
+        android:id="@+id/commonTitle"
+        layout="@layout/common_title_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_16"
+        android:background="@drawable/trans_black_board_bg"
+        android:padding="@dimen/dp_10"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commonTitle">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_10"
+            android:background="@null"
+            android:singleLine="true"
+            android:drawableLeft="@mipmap/search"
+            android:drawablePadding="@dimen/dp_16"
+            android:hint="@string/tip_search_scraps"
+            android:imeOptions="actionSearch"
+            android:textColor="@color/black"
+            android:textColorHint="@color/color_text_hint"
+            android:textSize="@dimen/normal_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_16"
+        app:layout_constraintBottom_toTopOf="@+id/refreshView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clSearch">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnToday"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_blue_small"
+            android:padding="5dp"
+            android:text="当日料废\n(20)"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btnAll"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:background="@drawable/trans_black_board_bg_small"
+            android:padding="5dp"
+            android:text="全部\n(20)"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btnToday"
+            app:layout_constraintRight_toLeftOf="@+id/btnUploaded"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnUploaded"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_10"
+            android:background="@drawable/btn_blue_small"
+            android:padding="5dp"
+            android:text="已上传\n(20)"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/btnAll"
+            app:layout_constraintLeft_toRightOf="@+id/btnAll"
+            app:layout_constraintRight_toLeftOf="@+id/btnWaitingUpload"
+            app:layout_constraintTop_toTopOf="@+id/btnAll" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnWaitingUpload"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_blue_small"
+            android:padding="5dp"
+            android:text="待上传\n(20)"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/btnAll"
+            app:layout_constraintLeft_toRightOf="@+id/btnUploaded"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnAll" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <include
+        android:id="@+id/refreshView"
+        layout="@layout/layout_refresh_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clTabs" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -7,7 +7,7 @@
     android:layout_height="100dp"
     android:layout_marginHorizontal="16dp"
     android:layout_marginTop="16dp"
-    android:background="@drawable/main_module_bg"
+    android:background="@drawable/trans_black_board_bg"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/clTopBg">

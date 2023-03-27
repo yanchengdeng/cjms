@@ -5,6 +5,7 @@ import com.blankj.utilcode.util.ActivityUtils
 import com.lxj.xpopup.XPopup
 import com.sgm.cjms.R
 import com.sgm.cjms.data.MainModule
+import com.sgm.cjms.data.ScrapsInfo
 
 
 /**
@@ -26,44 +27,30 @@ object CommonUtils {
                 cancelCallBack.invoke()
             }, false
         ).show()
-
     }
 
 
-    /**
-     * 初始化首页数据模板
-     */
-    fun initMainModules(): MutableList<MainModule> {
-        return mutableListOf(
-            MainModule(icon = R.mipmap.ic_launcher_round, name = R.string.mark_scraps, isUnreadNum = true, unReadNum = 20),
-            MainModule(icon = R.mipmap.ic_launcher_round, name = R.string.scraps_record, isUnreadNum = true, unReadNum = 30),
-            MainModule(icon = R.mipmap.ic_launcher_round, name = R.string.curb, isUnreadNum = true, unReadNum = 10),
-            MainModule(icon = R.mipmap.ic_launcher_round, name = R.string.refresh_cache_data, isUnreadNum = true, unReadNum = 0),
-            MainModule(
-                icon = R.mipmap.ic_launcher_round,
-                name = R.string.check_app,
-                isUnreadNum = false, unReadNum = 0
-            ),
-        )
-    }
+
 
     /**
      * 获取废料信息记录的 唯一关键id
      * 二选一，两者都存在时显示铸造毛坯码
-     * @param roughcastCode 铸造毛坯码
-     * @param readyMachiningCode 预加工码
+     *  roughcastCode 铸造毛坯码
+     *  readyMachiningCode 预加工码
      */
-    fun getUnionKey(roughcastCode: String?, readyMachiningCode: String?): String? {
-        if (TextUtils.isEmpty(roughcastCode) && TextUtils.isEmpty(readyMachiningCode)) {
+    fun getUnionKey(scrapsInfo: ScrapsInfo): String {
+        if (TextUtils.isEmpty(scrapsInfo.roughcastCode) && TextUtils.isEmpty(scrapsInfo.readyMachiningCode)) {
             L.e("必须🐴不存在，不存在此情况")
             return ""
         } else {
-            if (!TextUtils.isEmpty(roughcastCode)) {
-                return roughcastCode
+            if (!TextUtils.isEmpty(scrapsInfo.roughcastCode)) {
+                return scrapsInfo.roughcastCode
             }
-            return readyMachiningCode
+            return scrapsInfo.readyMachiningCode
         }
     }
+
+
 
 
 }

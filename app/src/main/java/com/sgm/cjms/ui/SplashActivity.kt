@@ -96,9 +96,9 @@ class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 L.d("onPageFinished : $url")
-                if (url?.contains(Constants.LOAD_LOGIN_UI) == true){
+//                if (url?.contains(Constants.LOAD_LOGIN_UI) == true){
                     dismissLoading()
-                }
+//                }
                 super.onPageFinished(view, url)
 
             }

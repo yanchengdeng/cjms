@@ -127,6 +127,10 @@ dependencies {
     // uCrop library (Not necessary)
 //    implementation 'io.github.lucksiege:ucrop:v3.10.8'
 
+    //版本升级
+    implementation 'com.github.xuexiangjys:XUpdate:2.1.2'
+    implementation 'com.github.xuexiangjys.XUpdateAPI:xupdate-easy:1.0.1'
+
 
 
 }
