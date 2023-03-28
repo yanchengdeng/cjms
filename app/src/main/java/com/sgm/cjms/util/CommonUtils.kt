@@ -1,11 +1,13 @@
 package com.sgm.cjms.util
 
+import android.app.Activity
 import android.text.TextUtils
 import com.blankj.utilcode.util.ActivityUtils
 import com.lxj.xpopup.XPopup
 import com.sgm.cjms.R
 import com.sgm.cjms.data.MainModule
 import com.sgm.cjms.data.ScrapsInfo
+import com.sgm.cjms.ui.MainActivity
 
 
 /**
@@ -47,6 +49,18 @@ object CommonUtils {
                 return scrapsInfo.roughcastCode
             }
             return scrapsInfo.readyMachiningCode
+        }
+    }
+
+    /**
+     * 移除首页 和 当前页 中间的所有页面
+     */
+    fun finishMainBetweenThis(activity: Activity) {
+        val allActivities = ActivityUtils.getActivityList()
+        allActivities.forEach {
+            if (it.javaClass !in listOf(MainActivity::class.java, activity::class.java)) {
+                it.finish()
+            }
         }
     }
 

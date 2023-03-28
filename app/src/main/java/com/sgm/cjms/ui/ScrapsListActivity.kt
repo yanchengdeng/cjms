@@ -15,6 +15,7 @@ import com.sgm.cjms.data.ScrapsInfo
 import com.sgm.cjms.data.ScrapsListType
 import com.sgm.cjms.databinding.ActivityScrapsListBinding
 import com.sgm.cjms.ui.adapter.ScrapMarkListAdapter
+import com.sgm.cjms.util.CommonUtils
 import com.sgm.cjms.util.SpacesItemDecoration
 import com.sgm.cjms.util.T
 import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
@@ -25,18 +26,21 @@ import me.hgj.jetpackmvvm.ext.view.clickNoRepeat
  * @Date: 2023/3/27 13:38
  * @Description:废料列表
  */
-class ScrapsListActivity : BaseActivity<BaseViewModel,ActivityScrapsListBinding>() {
+class ScrapsListActivity : BaseActivity<BaseViewModel, ActivityScrapsListBinding>() {
 
-    private val adapter  = ScrapMarkListAdapter(mutableListOf())
+    private val adapter = ScrapMarkListAdapter(mutableListOf())
 
     override fun initView(savedInstanceState: Bundle?) {
 
+
+        //废料录入保存完毕后跳转过来需要清除栈
+        CommonUtils.finishMainBetweenThis(this)
 
         mViewBind.commonTitle.tvTitle.text = getString(R.string.scraps_record)
         mViewBind.commonTitle.ivBack.setOnClickListener { finish() }
 
         val itemDecoration = SpacesItemDecoration(this)
-        itemDecoration.setParam(android.R.color.transparent,16)
+        itemDecoration.setParam(android.R.color.transparent, 16)
         mViewBind.refreshView.recyclerView.addItemDecoration(itemDecoration)
         mViewBind.refreshView.recyclerView.layoutManager = LinearLayoutManager(this)
         mViewBind.refreshView.recyclerView.adapter = adapter
@@ -69,9 +73,9 @@ class ScrapsListActivity : BaseActivity<BaseViewModel,ActivityScrapsListBinding>
 
         //搜索功能
         mViewBind.etSearch.setOnEditorActionListener { text, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH){
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 KeyboardUtils.hideSoftInput(mViewBind.etSearch)
-                T.toast( text.text.toString())
+                T.toast(text.text.toString())
             }
             false
         }
@@ -83,8 +87,8 @@ class ScrapsListActivity : BaseActivity<BaseViewModel,ActivityScrapsListBinding>
      */
     @SuppressLint("UseCompatLoadingForDrawables")
     private fun setSelectType(type: ScrapsListType) {
-        when(type){
-            ScrapsListType.TOADY ->{
+        when (type) {
+            ScrapsListType.TOADY -> {
                 mViewBind.btnToday.setTextColor(ColorUtils.getColor(R.color.white))
                 mViewBind.btnToday.background = getDrawable(R.drawable.btn_blue_small)
 
@@ -92,13 +96,15 @@ class ScrapsListActivity : BaseActivity<BaseViewModel,ActivityScrapsListBinding>
                 mViewBind.btnAll.background = getDrawable(R.drawable.trans_black_board_bg_small)
 
                 mViewBind.btnUploaded.setTextColor(ColorUtils.getColor(R.color.black))
-                mViewBind.btnUploaded.background = getDrawable(R.drawable.trans_black_board_bg_small)
+                mViewBind.btnUploaded.background =
+                    getDrawable(R.drawable.trans_black_board_bg_small)
 
                 mViewBind.btnWaitingUpload.setTextColor(ColorUtils.getColor(R.color.black))
-                mViewBind.btnWaitingUpload.background = getDrawable(R.drawable.trans_black_board_bg_small)
+                mViewBind.btnWaitingUpload.background =
+                    getDrawable(R.drawable.trans_black_board_bg_small)
 
             }
-            ScrapsListType.ALL ->{
+            ScrapsListType.ALL -> {
                 mViewBind.btnToday.setTextColor(ColorUtils.getColor(R.color.black))
                 mViewBind.btnToday.background = getDrawable(R.drawable.trans_black_board_bg_small)
 
@@ -106,13 +112,15 @@ class ScrapsListActivity : BaseActivity<BaseViewModel,ActivityScrapsListBinding>
                 mViewBind.btnAll.background = getDrawable(R.drawable.btn_blue_small)
 
                 mViewBind.btnUploaded.setTextColor(ColorUtils.getColor(R.color.black))
-                mViewBind.btnUploaded.background = getDrawable(R.drawable.trans_black_board_bg_small)
+                mViewBind.btnUploaded.background =
+                    getDrawable(R.drawable.trans_black_board_bg_small)
 
                 mViewBind.btnWaitingUpload.setTextColor(ColorUtils.getColor(R.color.black))
-                mViewBind.btnWaitingUpload.background = getDrawable(R.drawable.trans_black_board_bg_small)
+                mViewBind.btnWaitingUpload.background =
+                    getDrawable(R.drawable.trans_black_board_bg_small)
 
             }
-            ScrapsListType.UPLOADED ->{
+            ScrapsListType.UPLOADED -> {
                 mViewBind.btnToday.setTextColor(ColorUtils.getColor(R.color.black))
                 mViewBind.btnToday.background = getDrawable(R.drawable.trans_black_board_bg_small)
 
@@ -123,10 +131,11 @@ class ScrapsListActivity : BaseActivity<BaseViewModel,ActivityScrapsListBinding>
                 mViewBind.btnUploaded.background = getDrawable(R.drawable.btn_blue_small)
 
                 mViewBind.btnWaitingUpload.setTextColor(ColorUtils.getColor(R.color.black))
-                mViewBind.btnWaitingUpload.background = getDrawable(R.drawable.trans_black_board_bg_small)
+                mViewBind.btnWaitingUpload.background =
+                    getDrawable(R.drawable.trans_black_board_bg_small)
 
             }
-            ScrapsListType.WAITING ->{
+            ScrapsListType.WAITING -> {
                 mViewBind.btnToday.setTextColor(ColorUtils.getColor(R.color.black))
                 mViewBind.btnToday.background = getDrawable(R.drawable.trans_black_board_bg_small)
 
@@ -134,7 +143,8 @@ class ScrapsListActivity : BaseActivity<BaseViewModel,ActivityScrapsListBinding>
                 mViewBind.btnAll.background = getDrawable(R.drawable.trans_black_board_bg_small)
 
                 mViewBind.btnUploaded.setTextColor(ColorUtils.getColor(R.color.black))
-                mViewBind.btnUploaded.background = getDrawable(R.drawable.trans_black_board_bg_small)
+                mViewBind.btnUploaded.background =
+                    getDrawable(R.drawable.trans_black_board_bg_small)
 
                 mViewBind.btnWaitingUpload.setTextColor(ColorUtils.getColor(R.color.white))
                 mViewBind.btnWaitingUpload.background = getDrawable(R.drawable.btn_blue_small)
@@ -145,22 +155,6 @@ class ScrapsListActivity : BaseActivity<BaseViewModel,ActivityScrapsListBinding>
 
     //根据类型查找数据
     private fun searchDataByType(type: ScrapsListType) {
-
-        adapter?.setNewInstance(mutableListOf(
-            ScrapsInfo("fsdf","fsdf","fsdf","fsdf","fsdf${type.name}","fsd"),
-            ScrapsInfo("fsdf","fsdf","fsdf","fsdf","fsdf${type.name}","fsd"),
-            ScrapsInfo("fsdf","fsdf","fsdf","fsdf","fsdf${type.name}","fsd"),
-            ScrapsInfo("fsdf","fsdf","fsdf","fsdf","fsdf${type.name}","fsd"),
-            ScrapsInfo("fsdf","fsdf","fsdf","fsdf","fsdf${type.name}","fsd"),
-            ScrapsInfo("fsdf","fsdf","fsdf","fsdf","fsdf${type.name}","fsd"),
-            ScrapsInfo("fsdf","fsdf","fsdf","fsdf","fsdf${type.name}","fsd"),
-            ScrapsInfo("fsdf","fsdf","fsdf","fsdf","fsdf${type.name}","fsd"),
-            ScrapsInfo("fsdf","fsdf","fsdf","fsdf","fsdf${type.name}","fsd"),
-            ScrapsInfo("fsdf","fsdf","fsdf","fsdf","fsdf${type.name}","fsd"),
-            ScrapsInfo("fsdf","fsdf","fsdf","fsdf","fsdf${type.name}","fsd"),
-            ScrapsInfo("fsdf","fsdf","fsdf","fsdf","fsdf${type.name}","fsd"),
-            ScrapsInfo("fsdf","fsdf","fsdf","fsdf","fsdf${type.name}","fsd"),
-
-        ))
+        adapter.setNewInstance(mutableListOf())
     }
 }

@@ -31,9 +31,13 @@ class ScrapsInfoOtherActivity :
     private lateinit var photoAdapter: GridImageAdapter;
 
     override fun initView(savedInstanceState: Bundle?) {
+        initPhoto()
         mViewBind.commonTitle.ivBack.clickNoRepeat { finish() }
         mViewBind.commonTitle.tvTitle.text = getString(R.string.scraps_info_input_other)
-        initPhoto()
+        mViewBind.btnSaveAndUpload.clickNoRepeat {
+            mViewModel.saveMaterial()
+        }
+
     }
 
     private fun initPhoto() {

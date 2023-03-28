@@ -16,12 +16,12 @@ object DataResourceUtil {
      */
     fun initMainModules(): MutableList<MainModule> {
         return mutableListOf(
-            MainModule(icon = R.mipmap.ic_launcher_round, name = R.string.mark_scraps, isUnreadNum = true, unReadNum = 20),
-            MainModule(icon = R.mipmap.ic_launcher_round, name = R.string.scraps_record, isUnreadNum = true, unReadNum = 30),
-            MainModule(icon = R.mipmap.ic_launcher_round, name = R.string.curb, isUnreadNum = true, unReadNum = 10),
-            MainModule(icon = R.mipmap.ic_launcher_round, name = R.string.refresh_cache_data, isUnreadNum = true, unReadNum = 0),
+            MainModule(icon = R.mipmap.icon_scraps_record, name = R.string.mark_scraps, isUnreadNum = true, unReadNum = 20),
+            MainModule(icon = R.mipmap.icon_scraps_record_list, name = R.string.scraps_record, isUnreadNum = true, unReadNum = 30),
+            MainModule(icon = R.mipmap.icon_curb, name = R.string.curb, isUnreadNum = true, unReadNum = 10),
+            MainModule(icon = R.mipmap.icon_data_cache, name = R.string.refresh_cache_data, isUnreadNum = true, unReadNum = 0),
             MainModule(
-                icon = R.mipmap.ic_launcher_round,
+                icon = R.mipmap.icon_app_update,
                 name = R.string.check_app,
                 isUnreadNum = false, unReadNum = 0
             ),

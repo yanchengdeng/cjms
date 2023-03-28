@@ -12,6 +12,7 @@ class MainModuleAdapter(data : MutableList<MainModule>) : BaseQuickAdapter<MainM
     R.layout.adapter_main_module, data = data) {
     override fun convert(holder: BaseViewHolder, item: MainModule) {
         holder.setText(R.id.tvTitle, item.name)
+        holder.setImageResource(R.id.ivIcon,item.icon)
         if (item.isUnreadNum){
             holder.setGone(R.id.ivUpdate,true)
             holder.setVisible(R.id.tvUnreadNum, item.unReadNum > 0)

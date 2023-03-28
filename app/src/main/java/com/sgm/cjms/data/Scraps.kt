@@ -45,17 +45,97 @@ enum class ScrapsListType{
 }
 
 
-
-////废料信息
+/**
+ *
+baseCode 基地代号 string
+createBy 创建人 integer(int64)
+createDate 创建时间 string(date-time)
+defectDropLocation 缺陷位置（点，如3F，标准化） string
+defectFaceLocation 缺陷位置（面，如F1，标准化） string
+defectRemark 缺陷描述 string
+defectType 缺陷名称（标准化） string
+duns DUNS号 string
+frequency 班次 string
+partName 零件名称 string
+partNo 零件号 string
+platCode 平台 string
+prodLine 产线 string
+readyMachiningCode 预加工码 string
+remark 备注 string
+roughcastCode 铸造毛坯码 string
+sourceInfo 来源 string
+supplierName 供应商名称 string
+ttPtSpMaterialId 主键Id integer(int32)
+updateBy 更新人 integer(int64)
+wasteStatisticsDate 统计料废时间 string(date-time)
+wasteStatisticsName 统计料废人员
+whetherStatistics 是否计入料废（是，否，默认是）
+workshop 车间
+ */
 data class ScrapsInfo(
 
-    var baseCode : String,
-    var workshop : String,
-    var prodLine : String,
-    var partNo : String,
-    //二选一，两者都存在时显示铸造毛坯码
-    val roughcastCode : String,//铸造毛坯码
-    val readyMachiningCode : String//预加工码
+    var baseCode: String,
+    var createBy: Int,
+    var createDate: String,
+    var defectDropLocation: String,
+    var defectFaceLocation: String,
+    var defectRemark: String,
+    var defectType: String,
+    var duns: String,
+    var frequency: String,
+    var partName: String,
+    var partNo: String,
+    var platCode: String,
+    var prodLine: String,
+    var readyMachiningCode: String,
+    var remark: String,
+    var roughcastCode: String,
+    var sourceInfo: String,
+    var supplierName: String,
+    var ttPtSpMaterialId: Int,
+    var updateBy: Int,
+    var wasteStatisticsDate: String,
+    var wasteStatisticsName: String,
+    var whetherStatistics: String,
+    var workshop: String,
+    var imageOne : Image,
+    var imageTwo  : Image,
+    var imageThree : Image
+)
+
+//图片构造类 如果已经上传则取网络图片
+data class Image(
+    //本地图片
+    var nativeUrl : String,
+    //网络图片
+    var netUrl : String
+
+)
+
+//废料保存模板
+data class SaveScraps(
+    val baseCode: String,
+    val defectDropLocation: String,
+    val defectFaceLocation: String,
+    val defectRemark: String,
+    val defectType: String,
+    val duns: String,
+    val frequency: String,
+    val imageOne: String,
+    val imageThree: String,
+    val imageTwo: String,
+    val partNo: String,
+    val platCode: String,
+    val prodLine: String,
+    val readyMachiningCode: String,
+    val remark: String,
+    val roughcastCode: String,
+    val sourceInfo: String,
+    val supplierName: String,
+    val wasteStatisticsDate: String,
+    val wasteStatisticsName: String,
+    val whetherStatistics: String,
+    val workshop: String
 )
 
 

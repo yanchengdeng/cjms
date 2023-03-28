@@ -1,7 +1,7 @@
 package com.sgm.cjms.util
 
 import com.blankj.utilcode.util.GsonUtils
-import com.sgm.cjms.data.user.UserInfo
+import com.sgm.cjms.data.UserInfo
 import com.tencent.mmkv.MMKV
 
 /**
@@ -24,8 +24,9 @@ object CacheUtil {
 
     //获取用户账号
      fun getUserCode() : String {
-        return kv.decodeString(USER_CODE,"spl01") ?: "spl01"
+        return kv.decodeString(USER_CODE,"apptest77") ?: "apptest77"
     }
+
 
 
     //保存x-mid-token
@@ -48,7 +49,7 @@ object CacheUtil {
         if (userInfo.isEmpty()){
             return null
         }
-        return GsonUtils.fromJson(userInfo,UserInfo::class.java)
+        return GsonUtils.fromJson(userInfo, UserInfo::class.java)
     }
 
 

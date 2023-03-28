@@ -29,9 +29,12 @@ class MyHeadInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder = chain.request().newBuilder()
         builder.addHeader("x-track-code", System.currentTimeMillis().toString()).build()
-        builder.addHeader("x-app-code", "RFIDAPP").build()
+        builder.addHeader("x-app-code", "CJMS_APP").build()
         builder.addHeader("x-user-code", CacheUtil.getUserCode()).build()
-        builder.addHeader("x-mid-token", CacheUtil.getXmidToken()).build()
+        builder.addHeader("Content-type", "application/json;charset=UTF-8")
+        // TODO: 待后期确认后更改
+        builder.addHeader("x-user-name", "Pass1234")
+//        builder.addHeader("x-mid-token", CacheUtil.getXmidToken()).build()
         return chain.proceed(builder.build())
     }
 

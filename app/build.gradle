@@ -71,6 +71,7 @@ android {
             signingConfig signingConfigs.debug
             //网页登录地址
             buildConfigField 'String', 'WEB_LOGIN_URL', '"http://sgm-stg.broker.ap1.covapp.io/fed/app/idp.saml20?entityID=https://spdev.saic-gm.com/spsaml20/rfid&TARGET=https://spdev.saic-gm.com/spsaml20/rfid"'
+            buildConfigField 'String','SERVER_API_URL','"http://cjms-sp.apps-qa.saic-gm.com/app/backend/"'
             buildConfigField "boolean", "LOG_DEBUG", "true"//是否输出LOG信息
         }
 
@@ -81,6 +82,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.debug
             buildConfigField 'String', 'WEB_LOGIN_URL', '"http://sgm-stg.broker.ap1.covapp.io/fed/app/idp.saml20?entityID=https://spdev.saic-gm.com/spsaml20/rfid&TARGET=https://spdev.saic-gm.com/spsaml20/rfid"'
+            buildConfigField 'String','SERVER_API_URL','"http://cjms-sp.apps-qa.saic-gm.com/app/backend/"'
             buildConfigField "boolean", "LOG_DEBUG", "false"//是否输出LOG信息
         }
     }
@@ -130,6 +132,9 @@ dependencies {
     //版本升级
     implementation 'com.github.xuexiangjys:XUpdate:2.1.2'
     implementation 'com.github.xuexiangjys.XUpdateAPI:xupdate-easy:1.0.1'
+
+    //屏幕适配
+    implementation 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
 
 
 

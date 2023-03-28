@@ -89,7 +89,7 @@ class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {
                         var token = listSplits[1]
                         CacheUtil.saveXmidToken(token)
                         //待处理  请求 用户接口 获取用户userCode
-                        mViewModel.getUserInfo()
+//                        mViewModel.getUserInfo()
                     }
                 }
             }

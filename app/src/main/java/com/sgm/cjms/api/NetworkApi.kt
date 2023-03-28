@@ -5,6 +5,7 @@ import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
 import com.google.gson.GsonBuilder
+import com.sgm.cjms.BuildConfig
 import me.hgj.jetpackmvvm.base.appContext
 import me.hgj.jetpackmvvm.network.BaseNetworkApi
 import me.hgj.jetpackmvvm.network.interceptor.logging.LogInterceptor
@@ -21,7 +22,7 @@ import java.util.concurrent.TimeUnit
 
 //双重校验锁式-单例 封装NetApiService 方便直接快速调用简单的接口
 val apiService: ApiService by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
-    NetworkApi.INSTANCE.getApi(ApiService::class.java, ApiService.SERVER_API_URL)
+    NetworkApi.INSTANCE.getApi(ApiService::class.java, BuildConfig.SERVER_API_URL)
 }
 
 class NetworkApi : BaseNetworkApi() {
