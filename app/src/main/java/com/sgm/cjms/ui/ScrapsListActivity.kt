@@ -50,19 +50,19 @@ class ScrapsListActivity : BaseActivity<BaseViewModel, ActivityScrapsListBinding
 
         setSelectType(ScrapsListType.TOADY)
 
-        mViewBind.btnToday.clickNoRepeat {
+        mViewBind.btnToday.setOnClickListener {
             setSelectType(ScrapsListType.TOADY)
         }
 
-        mViewBind.btnAll.clickNoRepeat {
+        mViewBind.btnAll.setOnClickListener {
             setSelectType(ScrapsListType.ALL)
         }
 
-        mViewBind.btnUploaded.clickNoRepeat {
+        mViewBind.btnUploaded.setOnClickListener {
             setSelectType(ScrapsListType.UPLOADED)
         }
 
-        mViewBind.btnWaitingUpload.clickNoRepeat {
+        mViewBind.btnWaitingUpload.setOnClickListener {
             setSelectType(ScrapsListType.WAITING)
         }
 

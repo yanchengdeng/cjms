@@ -183,7 +183,7 @@
             android:id="@+id/tvScanCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableTop="@mipmap/ic_launcher_round"
+            android:drawableTop="@mipmap/icon_scan"
             android:drawablePadding="2dp"
             android:text="@string/tip_scan_code"
             android:textColor="@color/black"
